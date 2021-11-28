@@ -9,9 +9,9 @@ const store = require('../store')
 
 const signUpSuccess = function (responseData) {
   // tell the user it was successful
-  $('#bro-display').text('Signed up successfully, High-Five!')
-  $('#bro-display').removeClass()
-  $('#bro-display').addClass('text-success')
+  $('#success-display').text('Signed up successfully, High-Five!')
+  $('#success-display').removeClass()
+  $('#success-display').addClass('text-success')
   // reset all of the forms
   $('form').trigger('reset')
   console.log('responseData is', responseData)
@@ -35,10 +35,10 @@ const signInSuccess = function (responseData) {
   store.user = responseData.user
   console.log('store is', store)
 
-  $('#bro-display').text('Signed in successfully Bro!')
+  $('#success-display').text('Signed in successfully Bro!')
 
-  $('#bro-display').removeClass()
-  $('#bro-display').addClass('text-info')
+  $('#success-display').removeClass()
+  $('#success-display').addClass('text-info')
   // clear forms
   $('form').trigger('reset')
 
@@ -66,10 +66,10 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function (responseData) {
   // tell user
-  $('#bro-display').text("Signed Out successfully... I'll miss you...")
+  $('#success-display').text("Signed Out successfully... I'll miss you...")
   // make text green
-  $('#bro-display').removeClass()
-  $('#bro-display').addClass('text-info')
+  $('#success-display').removeClass()
+  $('#success-display').addClass('text-info')
   $('form').trigger('reset')
   // show before sign in and hide after sign in
   $('#before-sign-in').show()

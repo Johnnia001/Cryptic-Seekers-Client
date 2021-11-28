@@ -28,23 +28,23 @@ const onIndexStory = function (event) {
   event.preventDefault()
   console.log('onIndexStory ran!')
 
-  api.index()
+  api.indexStory()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
 }
 
-const onShowStory = function (event) {
+/* const onShowStory = function (event) {
   event.preventDefault()
   console.log('onShowStory ran!')
 
   const form = event.target
   const formData = getFormFields(form)
-  const id = formData.movie.id
+  const id = formData.story.id
 
   api.show(id)
     .then(ui.onShowSuccess)
     .catch(ui.onShowFailure)
-}
+} */
 
 const onDeleteStory = function (event) {
   event.preventDefault()
@@ -52,7 +52,7 @@ const onDeleteStory = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  const id = formData.movie.id
+  const id = formData.story.id
 
   api.destroy(id)
     .then(ui.onDeleteSuccess)
@@ -65,7 +65,7 @@ const onUpdateStory = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  const id = formData.movie.id
+  const id = formData.story.id
 
   api.update(id, formData)
     .then(ui.onUpdateSuccess)
@@ -75,7 +75,7 @@ const onUpdateStory = function (event) {
 module.exports = {
   onCreateStory,
   onIndexStory,
-  onShowStory,
+  // onShowStory,
   onDeleteStory,
   onUpdateStory
 }

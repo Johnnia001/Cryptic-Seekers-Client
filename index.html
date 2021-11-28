@@ -73,7 +73,7 @@
 
 		<section>
 			<div id="error-message"></div>
-			<div id="bro-display"></div>
+			<div id="success-display"></div>
 		</section>
 
 		<!--sign out form-->
@@ -102,13 +102,12 @@
 				</fieldset>
 			</form>
 			<!--create forum-->
-			<form id= "post-story" type= "text">
-
+			<form id="post-story" type="text">
 				<div>
 					<tr>
 						<td>
 							<input
-                class="post-story"
+								class="post-story"
 								type="text"
 								name="title"
 								size="30"
@@ -118,18 +117,67 @@
 						</td>
 						<td class="important">required</td>
 					</tr>
-					<textarea rows="7" name="message" wrap="SOFT" style="width: 28em" type="text"
-          >
+					<textarea
+						rows="7"
+						name="message"
+						wrap="SOFT"
+						style="width: 28em"
+						type="text"
+					>
 					</textarea>
-					<button type= "submit">Post Story</button>
+					<button type="submit">Post Story</button>
 				</div>
-    
 			</form>
 			<!--where stories will be posted-->
 			<div class="stories">
 				<section id="story-display"></section>
+				<section id="stories-display"></section>
 			</div>
+			<form id="story-index" class="border">
+				<fieldset>
+					<legend>Get All stories</legend>
+					<button class="btn btn-primary">Get All Stories</button>
+				</fieldset>
+			</form>
+			<form id="stories-delete" class="border">
+				<fieldset>
+					<legend>Delete</legend>
+					<input
+						type="text"
+						name="story[id]"
+						placeholder="Enter story ID"
+						required
+					/>
+					<button class="btn btn-danger">Delete Story</button>
+				</fieldset>
+			</form>
+
+			<form id="stories-update" class="border">
+				<fieldset>
+					<legend>Update One Story</legend>
+					<input
+						type="text"
+						name="story[id]"
+						placeholder="Enter Story ID"
+						required
+					/>
+					<input
+						type="text"
+						name="story[title]"
+						placeholder="Enter Story Text"
+						required
+					/>
+					<input
+						type="text"
+						name="story[message]"
+						placeholder="Enter Story Director"
+						required
+					/>
+					<button class="btn btn-primary">Update Story</button>
+				</fieldset>
+			</form>
 		</section>
+
 		<!--TODO: match id and classes to ui api event story-->
 	</body>
 </html>

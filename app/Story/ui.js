@@ -41,8 +41,8 @@ const onError = function (err) {
 }
 
 const onIndexSuccess = function (responseData) {
-  $('#stories-display').text('All Storys successfully received')
-  $('#stories-display').removeClass()
+  $('#success-display').text('All Stories successfully received')
+  $('#success-display').removeClass()
   console.log('onIndexSuccess ran. responseData is :', responseData.stories)
 
   let storiesHtml = ''
@@ -58,7 +58,7 @@ const onIndexSuccess = function (responseData) {
 
     // for the div with the id story-display,
     // set its html to be our story's html
-    $('#story-display').html(storiesHtml)
+    $('#stories-display').html(storiesHtml)
 
     $('form').trigger('reset')
   })
@@ -72,10 +72,10 @@ const onIndexFailure = function (error) {
   console.error('onIndexFailure ran. Error is :', error)
 }
 
-const onShowSuccess = function (responseData) {
-  $('#stories-display').text('One Story successfully received')
-  $('#stories-display').removeClass()
-  $('#stories-display').addClass('text-success')
+/* const onShowSuccess = function (responseData) {
+  $('#success-display').text('One Story successfully received')
+  $('#success-display').removeClass()
+  $('#success-display').addClass('text-success')
   console.log('onShowSuccess ran. responseData is :', responseData)
   $('form').trigger('reset')
 
@@ -94,17 +94,17 @@ const onShowFailure = function (error) {
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   console.error('onShowFailure ran. Error is :', error)
-}
+} */
 
-const onDestroySuccess = function () {
-  $('#stories-display').text('Story successfully deleted')
-  $('#stories-display').removeClass()
-  $('#stories-display').addClass('text-success')
+const onDeleteSuccess = function () {
+  $('#success-display').text('Story successfully deleted')
+  $('#success-display').removeClass()
+  $('#success-display').addClass('text-success')
   $('form').trigger('reset')
   console.log('Story successfully deleted')
 }
 
-const onDestroyFailure = function (error) {
+const onDeleteFailure = function (error) {
   $('#error-message').text('Error on deleting story')
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
@@ -112,9 +112,9 @@ const onDestroyFailure = function (error) {
 }
 
 const onUpdateSuccess = function () {
-  $('#stories-display').text('Story successfully updated')
-  $('#stories-display').removeClass()
-  $('#stories-display').addClass('text-success')
+  $('#success-display').text('Story successfully updated')
+  $('#success-display').removeClass()
+  $('#success-display').addClass('text-success')
   $('form').trigger('reset')
   console.log('Story successfully updated')
 }
@@ -131,10 +131,10 @@ module.exports = {
   onCreateStorySuccess,
   onIndexSuccess,
   onIndexFailure,
-  onShowSuccess,
-  onShowFailure,
-  onDestroySuccess,
-  onDestroyFailure,
+  // onShowSuccess,
+  // onShowFailure,
+  onDeleteSuccess,
+  onDeleteFailure,
   onUpdateSuccess,
   onUpdateFailure
 }

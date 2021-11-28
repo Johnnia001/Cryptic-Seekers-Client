@@ -18,7 +18,7 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   // create story
   $('#post-story').on('submit', storyEvent.onCreateStory)
-  $('#sign-in').on('submit', storyEvent.onIndexStory)
+  $('#story-index').on('submit', storyEvent.onIndexStory)
   $('#post-story').on('submit', storyEvent.onShowStory)
   $('#stories-delete').on('submit', storyEvent.onDeleteStory)
   $('#stories-update').on('submit', storyEvent.onUpdateStory)
