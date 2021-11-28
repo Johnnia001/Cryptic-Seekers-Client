@@ -1,62 +1,135 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Cryptic Seekers</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Cryptic Seekers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<!-- Do not add `link` tags-->
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Cryptic Seekers</h1>
-      <section id="before-sign-in">
-        <!-- sign up form-->
-        <form class="border" id="sign-up">
-          <fieldset>
-            <legend>Sign Up</legend>
-            <input name="credentials[email]" type="email" placeholder="Email" required>
-            <input name="credentials[password]" type="password" placeholder="Password" required>
-            <input name="credentials[password_confirmation" type="password" placeholder="Password Confirmation" required>
-            <button class="brn btn-info">Sign Up</button>
-          </fieldset>
-        </form>
-      
-        <!--Sign in form-->
-        <form class="border" id="sign-in">
-          <fieldset>
-            <legend>Sign In</legend>
-            <input name="credentials[email]" type="email" placeholder="Email" required>
-            <input name="credentials[password]" type="password" placeholder="Password" required>
-            <button class="btn btn-info">Sign In</button>
-          </fieldset>
-        </form>
-      </section>
-      
-      <section>
-        <div id="error-message"></div>
-        <div id="bro-display"></div>
-      </section>
-      
-      <!--sign out form-->
-      <section id="after-sign-in" style="display: none">
-        <fieldset>
-          <legend>Sign Out</legend>
-          <button class="btn btn-danger" id="sign-out">Sign Out</button>
-        </fieldset>
-        <!-- change password and sign out forms -->
-        <form class="border" id="change-password">
-          <fieldset>
-            <legend>Change Password</legend>
-            <input name="passwords[old]" type="password" placeholder="Old Password" required>
-            <input name="passwords[new]" type="password" placeholder="New Password" required>
-            <button class="btn btn-success">Change Password</button>
-          </fieldset>
-        </form>
-      </section>
+		<!-- Do not add `script` tags-->
+		<script
+			src="public/vendor.js"
+			type="text/javascript"
+			charset="utf-8"
+			defer
+		></script>
+		<script
+			src="public/application.js"
+			type="text/javascript"
+			charset="utf-8"
+			defer
+		></script>
+	</head>
+	<body>
+		<h1>Cryptic Seekers</h1>
+		<section id="before-sign-in">
+			<!-- sign up form-->
+			<form class="border" id="sign-up">
+				<fieldset>
+					<legend>Sign Up</legend>
+					<input
+						name="credentials[email]"
+						type="email"
+						placeholder="Email"
+						required
+					/>
+					<input
+						name="credentials[password]"
+						type="password"
+						placeholder="Password"
+						required
+					/>
+					<input
+						name="credentials[password_confirmation"
+						type="password"
+						placeholder="Password Confirmation"
+						required
+					/>
+					<button class="brn btn-info">Sign Up</button>
+				</fieldset>
+			</form>
 
-    </body>
+			<!--Sign in form-->
+			<form class="border" id="sign-in">
+				<fieldset>
+					<legend>Sign In</legend>
+					<input
+						name="credentials[email]"
+						type="email"
+						placeholder="Email"
+						required
+					/>
+					<input
+						name="credentials[password]"
+						type="password"
+						placeholder="Password"
+						required
+					/>
+					<button class="btn btn-info">Sign In</button>
+				</fieldset>
+			</form>
+		</section>
+
+		<section>
+			<div id="error-message"></div>
+			<div id="bro-display"></div>
+		</section>
+
+		<!--sign out form-->
+		<section id="after-sign-in" style="display: none">
+			<fieldset>
+				<legend>Sign Out</legend>
+				<button class="btn btn-danger" id="sign-out">Sign Out</button>
+			</fieldset>
+			<!-- change password and sign out forms -->
+			<form class="border" id="change-password">
+				<fieldset>
+					<legend>Change Password</legend>
+					<input
+						name="passwords[old]"
+						type="password"
+						placeholder="Old Password"
+						required
+					/>
+					<input
+						name="passwords[new]"
+						type="password"
+						placeholder="New Password"
+						required
+					/>
+					<button class="btn btn-success">Change Password</button>
+				</fieldset>
+			</form>
+			<!--create forum-->
+			<form id= "post-story" type= "text">
+
+				<div>
+					<tr>
+						<td>
+							<input
+                class="post-story"
+								type="text"
+								name="title"
+								size="30"
+								maxlength="80"
+								value=""
+							/>
+						</td>
+						<td class="important">required</td>
+					</tr>
+					<textarea rows="7" name="message" wrap="SOFT" style="width: 28em" type="text"
+          >
+					</textarea>
+					<button type= "submit">Post Story</button>
+				</div>
+    
+			</form>
+			<!--where stories will be posted-->
+			<div class="stories">
+				<section id="story-display"></section>
+			</div>
+		</section>
+		<!--TODO: match id and classes to ui api event story-->
+	</body>
 </html>
