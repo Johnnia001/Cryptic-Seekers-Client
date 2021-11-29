@@ -54,7 +54,7 @@ const onDeleteStory = function (event) {
   const formData = getFormFields(form)
   const id = formData.story.id
 
-  api.destroy(id)
+  api.destroyStory(id)
     .then(ui.onDeleteSuccess)
     .catch(ui.onDeleteFailure)
 }
@@ -72,10 +72,29 @@ const onUpdateStory = function (event) {
     .catch(ui.onUpdateFailure)
 }
 
+// Handle clicking the dynamic destroy buttons
+const onDynamicDestroyStory = function (event) {
+  // event.target is the delete button that was clicked on
+  const deleteButton = event.target
+
+  // Extract the id from the delete button that was clicked on's data-id attribute
+  const id = $(deleteButton).data('id')
+
+  // make API call for deleting one book with the data we grabbed from the form
+  api.destroyStory(id)
+
+    // if the API call is successful then invoke the  function
+    .then(ui.onDeleteSuccess)
+
+    // if the API call fails then run our onError function
+    .catch(ui.onError)
+}
+
 module.exports = {
   onCreateStory,
   onIndexStory,
   // onShowStory,
   onDeleteStory,
-  onUpdateStory
+  onUpdateStory,
+  onDynamicDestroyStory
 }

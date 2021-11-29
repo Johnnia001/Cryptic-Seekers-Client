@@ -10,6 +10,8 @@ const onCreateStorySuccess = function (responseData) {
       <h4>Title: ${story.title}</h4>
       <p>Author: ${story.owner}</p>
       <p>Encounter: ${story.message}</p>
+       <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
+      <br>
     </div>
   `
 
@@ -53,6 +55,7 @@ const onIndexSuccess = function (responseData) {
       <h4>Title: ${story.title}</h4>
       <p>Author: ${story.owner}</p>
       <p>Encounter: ${story.message}</p>
+      <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
     </div>
   `
 
