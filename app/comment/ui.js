@@ -1,24 +1,24 @@
 'use strict'
-const onCreateStorySuccess = function (responseData) {
-  // extract the story object from our response's data
-  const story = responseData.story
+// TODO: make button appear and work...
+
+const onCreateCommentSuccess = function (responseData) {
+  // extract the comment object from our response's data
+  const comment = responseData.comment
   console.log(responseData)
 
-  // create the html to display a single story
-  const storyHtml = `
+  // create the html to display a single comment
+  const commentHtml = `
     <div>
-      <h4>Title: ${story.title}</h4>
-      <p>Author: ${story.owner}</p>
-      <p>Encounter: ${story.message}</p>
-       <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
-        <button class='create-comment' data-id=${story._id}>Comment</button>
+      <p>Author: ${comment.owner}</p>
+      <p>Encounter: ${comment.message}</p>
+       <button class='comment-destroy-dynamic' data-id=${comment._id}>Delete Comment</button>
       <br>
     </div>
   `
 
-  // for the div with the id story-display,
-  // set its html to be our story's html
-  $('#story-display').html(storyHtml)
+  // for the div with the id comment-display,
+  // set its html to be our comment's html
+  $('#comment-display').html(commentHtml)
 
   $('form').trigger('reset')
 }
@@ -44,87 +44,87 @@ const onError = function (err) {
 }
 
 const onIndexSuccess = function (responseData) {
-  $('#success-display').text('All Stories successfully received')
+  $('#success-display').text('All Comments successfully received')
   $('#success-display').removeClass()
-  console.log('onIndexSuccess ran. responseData is :', responseData.stories)
+  console.log('onIndexSuccess ran. responseData is :', responseData.comments)
 
-  let storiesHtml = ''
-  const stories = responseData.stories
-  stories.forEach((story) => {
-    storiesHtml += `
+  let commentsHtml = ''
+  const comments = responseData.comments
+  comments.forEach((comment) => {
+    commentsHtml += `
     <div>
-      <h4>Title: ${story.title}</h4>
-      <p>Author: ${story.owner}</p>
-      <p>Encounter: ${story.message}</p>
-      <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
+      <h4>Title: ${comment.title}</h4>
+      <p>Author: ${comment.owner}</p>
+      <p>Encounter: ${comment.message}</p>
+      <button class='comment-destroy-dynamic' data-id=${comment._id}>Delete Post</button>
     </div>
   `
 
-    // for the div with the id story-display,
-    // set its html to be our story's html
-    $('#stories-display').html(storiesHtml)
+    // for the div with the id comment-display,
+    // set its html to be our comment's html
+    $('#comments-display').html(commentsHtml)
 
     $('form').trigger('reset')
   })
-  $('#story-display').html(storiesHtml)
+  $('#comment-display').html(commentsHtml)
 }
 
 const onIndexFailure = function (error) {
-  $('#error-message').text('Error on getting stories')
+  $('#error-message').text('Error on getting comments')
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   console.error('onIndexFailure ran. Error is :', error)
 }
 
 /* const onShowSuccess = function (responseData) {
-  $('#success-display').text('One Story successfully received')
+  $('#success-display').text('One Comment successfully received')
   $('#success-display').removeClass()
   $('#success-display').addClass('text-success')
   console.log('onShowSuccess ran. responseData is :', responseData)
   $('form').trigger('reset')
 
-  const story = responseData.story
-  $('#stories-display').html(`
+  const comment = responseData.comment
+  $('#comments-display').html(`
      <div>
-      <h4>Title: ${story.title}</h4>
-      <p>Author: ${story.owner}</p>
-      <p>Encounter: ${story.message}</p>
+      <h4>Title: ${comment.title}</h4>
+      <p>Author: ${comment.owner}</p>
+      <p>Encounter: ${comment.message}</p>
     </div>
   `)
 }
 
 const onShowFailure = function (error) {
-  $('#error-message').text('Error on getting story')
+  $('#error-message').text('Error on getting comment')
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   console.error('onShowFailure ran. Error is :', error)
 } */
 
 const onDeleteSuccess = function () {
-  $('#success-display').text('Story successfully deleted')
+  $('#success-display').text('Comment successfully deleted')
   $('#success-display').removeClass()
   $('#success-display').addClass('text-success')
   $('form').trigger('reset')
-  console.log('Story successfully deleted')
+  console.log('Comment successfully deleted')
 }
 
 const onDeleteFailure = function (error) {
-  $('#error-message').text('Error on deleting story')
+  $('#error-message').text('Error on deleting comment')
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   console.error('onDestroyFailure ran. Error is :', error)
 }
 
 const onUpdateSuccess = function () {
-  $('#success-display').text('Story successfully updated')
+  $('#success-display').text('Comment successfully updated')
   $('#success-display').removeClass()
   $('#success-display').addClass('text-success')
   $('form').trigger('reset')
-  console.log('Story successfully updated')
+  console.log('Comment successfully updated')
 }
 
 const onUpdateFailure = function (error) {
-  $('#error-message').text('Error on updating story')
+  $('#error-message').text('Error on updating comment')
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   console.error('onUpdateFailure ran. Error is :', error)
@@ -132,7 +132,7 @@ const onUpdateFailure = function (error) {
 
 module.exports = {
   onError,
-  onCreateStorySuccess,
+  onCreateCommentSuccess,
   onIndexSuccess,
   onIndexFailure,
   // onShowSuccess,

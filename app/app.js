@@ -22,7 +22,7 @@ $(() => {
   $('#post-story').on('submit', storyEvent.onShowStory)
   $('#stories-delete').on('submit', storyEvent.onDeleteStory)
   $('#stories-update').on('submit', storyEvent.onUpdateStory)
-  $('#stories-display').on(
+  $('#story-display').on(
     'click',
     '.story-destroy-dynamic',
     storyEvent.onDynamicDestroyStory
