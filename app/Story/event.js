@@ -89,6 +89,22 @@ const onDynamicDestroyStory = function (event) {
     // if the API call fails then run our onError function
     .catch(ui.onError)
 }
+const onDynamicUpdateStory = function (event) {
+  $('.update-single-story').show()
+}
+
+const onDynamicUpdateStoryPartTwo = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  const id = $(event.target).data('id')
+
+  api
+    .updateStory(id, formData)
+
+    .then(ui.onupdateSuccess)
+    .catch(ui.onError)
+}
 
 module.exports = {
   onCreateStory,
@@ -96,5 +112,7 @@ module.exports = {
   // onShowStory,
   onDeleteStory,
   onUpdateStory,
-  onDynamicDestroyStory
+  onDynamicDestroyStory,
+  onDynamicUpdateStory,
+  onDynamicUpdateStoryPartTwo
 }

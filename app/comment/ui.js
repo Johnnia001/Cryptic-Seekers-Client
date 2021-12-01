@@ -8,7 +8,7 @@ const onCreateCommentSuccess = function (responseData) {
 
   // create the html to display a single comment
   const commentHtml = `
-    <div>
+    <div class= 'single-comment'data-id=${comment._id} style="display: none">
       <p>Author: ${comment.owner}</p>
       <p>Encounter: ${comment.message}</p>
        <button class='comment-destroy-dynamic' data-id=${comment._id}>Delete Comment</button>
@@ -18,7 +18,7 @@ const onCreateCommentSuccess = function (responseData) {
 
   // for the div with the id comment-display,
   // set its html to be our comment's html
-  $('#comment-display').html(commentHtml)
+  $('.comment-display').html(commentHtml)
 
   $('form').trigger('reset')
 }
@@ -62,11 +62,11 @@ const onIndexSuccess = function (responseData) {
 
     // for the div with the id comment-display,
     // set its html to be our comment's html
-    $('#comments-display').html(commentsHtml)
+    $('.comments-display').html(commentsHtml)
 
     $('form').trigger('reset')
   })
-  $('#comment-display').html(commentsHtml)
+  $('.comment-display').html(commentsHtml)
 }
 
 const onIndexFailure = function (error) {

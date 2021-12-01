@@ -101,6 +101,13 @@
 					<button class="btn btn-success">Change Password</button>
 				</fieldset>
 			</form>
+			<!-- see all stories-->
+				<form id="story-index" class="border">
+				<fieldset>
+					<legend>Get All stories</legend>
+					<button class="btn btn-primary">Get All Stories</button>
+				</fieldset>
+			</form>
 			<!--create forum-->
 			<form id="post-story" type="text">
 				<div>
@@ -133,49 +140,8 @@
 				<section id="story-display"></section>
 				<section id="stories-display"></section>
 			</div>
-			<form id="story-index" class="border">
-				<fieldset>
-					<legend>Get All stories</legend>
-					<button class="btn btn-primary">Get All Stories</button>
-				</fieldset>
-			</form>
-			<form id="stories-delete" class="border">
-				<fieldset>
-					<legend>Delete</legend>
-					<input
-						type="text"
-						name="story[id]"
-						placeholder="Enter story ID"
-						required
-					/>
-					<button class="btn btn-danger">Delete Story</button>
-				</fieldset>
-			</form>
-
-			<form id="stories-update" class="border">
-				<fieldset>
-					<legend>Update One Story</legend>
-					<input
-						type="text"
-						name="story[id]"
-						placeholder="Enter Story ID"
-						required
-					/>
-					<input
-						type="text"
-						name="story[title]"
-						placeholder="Enter Story Text"
-						required
-					/>
-					<input
-						type="text"
-						name="story[message]"
-						placeholder="Enter Story Director"
-						required
-					/>
-					<button class="btn btn-primary">Update Story</button>
-				</fieldset>
-			</form>
+		
+					
 		</section>
 
 		<!--TODO: match id and classes to ui api event story-->

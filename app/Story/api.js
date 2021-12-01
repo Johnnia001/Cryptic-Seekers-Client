@@ -47,7 +47,7 @@ const destroyStory = function (id) {
 
 const updateStory = function (id, formData) {
   return $.ajax({
-    url: config.apiUrl + '/stories/' + id,
+    url: `${config.apiUrl}/stories/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token

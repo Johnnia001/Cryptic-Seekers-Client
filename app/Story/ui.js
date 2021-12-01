@@ -1,3 +1,4 @@
+/* eslint-disable no-tabs */
 'use strict'
 const onCreateStorySuccess = function (responseData) {
   // extract the story object from our response's data
@@ -10,9 +11,27 @@ const onCreateStorySuccess = function (responseData) {
       <h4>Title: ${story.title}</h4>
       <p>Author: ${story.owner}</p>
       <p>Encounter: ${story.message}</p>
-       <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
-        <button class='create-comment' data-id=${story._id}>Comment</button>
-      <br>
+      <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
+        <button class='story-update-dynamic'>Edit Post</button>
+        <form>
+        <fieldset class='update-single-story' data-id=${story._id} style= "display: none">
+					<legend>edit</legend>
+					<input
+						type="text"
+						name="story[title]"
+						placeholder="Enter Story Text"
+						required
+					/>
+					<input
+						type="text"
+						name="story[message]"
+						placeholder="Enter Edited Story"
+						required
+					/>
+					<button class="btn btn-primary">Update Story</button>
+				</fieldset>
+			</form>
+        
     </div>
   `
 
@@ -57,6 +76,26 @@ const onIndexSuccess = function (responseData) {
       <p>Author: ${story.owner}</p>
       <p>Encounter: ${story.message}</p>
       <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
+        <button class='story-update-dynamic'>Edit Post</button>
+        <form class='update-single-story' data-id=${story._id}>
+        <fieldset class='update-single-story'  style= "display: none">
+					<legend>edit</legend>
+					<input
+						type="text"
+						name="story[title]"
+						placeholder="Enter Story Text"
+						required
+					/>
+					<input
+						type="text"
+						name="story[message]"
+						placeholder="Enter Edited Story"
+						required
+					/>
+					<button class="btn btn-primary">Update Story</button>
+				</fieldset>
+			</form>
+        
     </div>
   `
 
