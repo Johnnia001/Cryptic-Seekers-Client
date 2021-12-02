@@ -46,9 +46,9 @@ $(() => {
     '.story-comment-dynamic',
     commentEvent.onDynamicCommentStory
   )
-  $('.comment-form').on(
+  $('#story-display').on(
     'submit',
-    '.comment-single-story',
+    '.comment-form',
     commentEvent.onDynamicCommentStoryPartTwo
   )
 })
