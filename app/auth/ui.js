@@ -14,7 +14,6 @@ const signUpSuccess = function (responseData) {
   $('#success-display').addClass('text-success')
   // reset all of the forms
   $('form').trigger('reset')
-  console.log('responseData is', responseData)
 }
 // sign up failure
 
@@ -33,7 +32,6 @@ const signUpFailure = function (error) {
 const signInSuccess = function (responseData) {
   // add the user from response data in store for their token we can get in api
   store.user = responseData.user
-  console.log('store is', store)
 
   $('#success-display').text('Signed in successfully Bro!')
 
@@ -46,8 +44,6 @@ const signInSuccess = function (responseData) {
   $('#before-sign-in').hide()
   // show after sign in section
   $('#after-sign-in').show()
-  $('#new-game-button').show()
-  console.log('responseData is', responseData)
 }
 
 // sign in fail;ure
@@ -74,10 +70,6 @@ const signOutSuccess = function (responseData) {
   // show before sign in and hide after sign in
   $('#before-sign-in').show()
   $('#after-sign-in').hide()
-  $('#new-game-button').hide()
-  $('.game-board').hide()
-
-  console.log('responseData is', responseData)
 }
 // sign out failure
 
@@ -99,8 +91,6 @@ const changePasswordSuccess = function (responseData) {
 
   // clear (reset) all of the forms
   $('form').trigger('reset')
-
-  console.log('responseData is', responseData)
 }
 
 const changePasswordFailure = function (error) {

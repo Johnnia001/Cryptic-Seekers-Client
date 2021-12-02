@@ -12,7 +12,6 @@ const onCreateStory = (event) => {
   const form = event.target
   // Get the data out of our `form`
   const formData = getFormFields(form)
-  console.log(formData)
 
   // extract the id from our form's data
 
@@ -26,29 +25,14 @@ const onCreateStory = (event) => {
 
 const onIndexStory = function (event) {
   event.preventDefault()
-  console.log('onIndexStory ran!')
 
   api.indexStory()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
 }
 
-/* const onShowStory = function (event) {
-  event.preventDefault()
-  console.log('onShowStory ran!')
-
-  const form = event.target
-  const formData = getFormFields(form)
-  const id = formData.story.id
-
-  api.show(id)
-    .then(ui.onShowSuccess)
-    .catch(ui.onShowFailure)
-} */
-
 const onDeleteStory = function (event) {
   event.preventDefault()
-  console.log('onDeleteStory ran!')
 
   const form = event.target
   const formData = getFormFields(form)
@@ -61,7 +45,6 @@ const onDeleteStory = function (event) {
 
 const onUpdateStory = function (event) {
   event.preventDefault()
-  console.log('onUpdateStory ran!')
 
   const form = event.target
   const formData = getFormFields(form)
@@ -109,7 +92,6 @@ const onDynamicUpdateStoryPartTwo = function (event) {
 module.exports = {
   onCreateStory,
   onIndexStory,
-  // onShowStory,
   onDeleteStory,
   onUpdateStory,
   onDynamicDestroyStory,

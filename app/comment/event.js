@@ -5,14 +5,13 @@ const ui = require('./ui')
 // import the getFormFields function, to get data out of our form
 const getFormFields = require('../../lib/get-form-fields')
 
-const onCreateComment = (event) => {
+ const onCreateComment = (event) => {
   // prevent the default action of the form refreshing the page
   // when it is submitted.
   event.preventDefault()
   const form = event.target
   // Get the data out of our `form`
   const formData = getFormFields(form)
-  console.log(formData)
 
   // extract the id from our form's data
 
@@ -24,29 +23,15 @@ const onCreateComment = (event) => {
     .catch(ui.onError)
 }
 
+
 const onIndexComment = function (event) {
   event.preventDefault()
-  console.log('onIndexComment ran!')
 
   api.indexComment().then(ui.onIndexSuccess).catch(ui.onIndexFailure)
 }
 
-/* const onShowComment = function (event) {
-  event.preventDefault()
-  console.log('onShowComment ran!')
-
-  const form = event.target
-  const formData = getFormFields(form)
-  const id = formData.comment.id
-
-  api.show(id)
-    .then(ui.onShowSuccess)
-    .catch(ui.onShowFailure)
-} */
-
 const onDeleteComment = function (event) {
   event.preventDefault()
-  console.log('onDeleteComment ran!')
 
   const form = event.target
   const formData = getFormFields(form)
@@ -57,7 +42,6 @@ const onDeleteComment = function (event) {
 
 const onUpdateComment = function (event) {
   event.preventDefault()
-  console.log('onUpdateComment ran!')
 
   const form = event.target
   const formData = getFormFields(form)
@@ -85,11 +69,28 @@ const onDynamicDestroyComment = function (event) {
     .catch(ui.onError)
 }
 
+const onDynamicCommentStory = function (event) {
+  $('.comment-single-story').show()
+}
+
+const onDynamicCommentStoryPartTwo = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  const id = $(event.target).data('id')
+
+  api
+    .createComment(id, formData)
+
+    .then(ui.onCreateCommentSuccess)
+    .catch(ui.onError)
+}
 module.exports = {
-  onCreateComment,
+  // onCreateComment,
   onIndexComment,
-  // onShowComment,
   onDeleteComment,
   onUpdateComment,
-  onDynamicDestroyComment
+  onDynamicDestroyComment,
+  onDynamicCommentStory,
+  onDynamicCommentStoryPartTwo
 }

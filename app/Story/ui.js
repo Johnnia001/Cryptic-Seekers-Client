@@ -3,9 +3,8 @@
 const onCreateStorySuccess = function (responseData) {
   // extract the story object from our response's data
   const story = responseData.story
-  console.log(responseData)
 
-  // create the html to display a single story
+  // create the html to display stories
   const storyHtml = `
     <div>
       <h4>Title: ${story.title}</h4>
@@ -31,7 +30,24 @@ const onCreateStorySuccess = function (responseData) {
 					<button class="btn btn-primary">Update Story</button>
 				</fieldset>
 			</form>
-        
+      <!--see comments button-->
+      <button class='see-comment-dynamic'>See Comments</button>
+      <!--comment button-->
+      <button class='story-comment-dynamic'>Reply</button>
+      <!--comment form -->
+       <form>
+        <fieldset class='comment-single-story' data-id=${story._id} style= "display: none">
+					<input
+						type="text"
+						name="story[comment]"
+						placeholder="Reply"
+						required
+					/>
+					<button class="btn btn-primary">Reply</button>
+				</fieldset>
+			</form>
+
+      <section id= "comment-display${story._id}"></section>
     </div>
   `
 
@@ -65,7 +81,6 @@ const onError = function (err) {
 const onIndexSuccess = function (responseData) {
   $('#success-display').text('All Stories successfully received')
   $('#success-display').removeClass()
-  console.log('onIndexSuccess ran. responseData is :', responseData.stories)
 
   let storiesHtml = ''
   const stories = responseData.stories
@@ -95,7 +110,23 @@ const onIndexSuccess = function (responseData) {
 					<button class="btn btn-primary">Update Story</button>
 				</fieldset>
 			</form>
-        
+      <!--comment button-->
+      <button class='story-comment-dynamic'>comment</button>
+      <!--comment form -->
+       <form class="comment-form">
+        <fieldset class='comment-single-story' data-id=${story._id} style= "display: none">
+					
+					<input
+						type="text"
+						name="story[comment]"
+						placeholder="Reply"
+						required
+					/>
+					<button class="btn btn-primary">Reply</button>
+				</fieldset>
+			</form>
+    </div>
+
     </div>
   `
 
@@ -115,36 +146,11 @@ const onIndexFailure = function (error) {
   console.error('onIndexFailure ran. Error is :', error)
 }
 
-/* const onShowSuccess = function (responseData) {
-  $('#success-display').text('One Story successfully received')
-  $('#success-display').removeClass()
-  $('#success-display').addClass('text-success')
-  console.log('onShowSuccess ran. responseData is :', responseData)
-  $('form').trigger('reset')
-
-  const story = responseData.story
-  $('#stories-display').html(`
-     <div>
-      <h4>Title: ${story.title}</h4>
-      <p>Author: ${story.owner}</p>
-      <p>Encounter: ${story.message}</p>
-    </div>
-  `)
-}
-
-const onShowFailure = function (error) {
-  $('#error-message').text('Error on getting story')
-  $('#error-message').removeClass()
-  $('#error-message').addClass('text-danger')
-  console.error('onShowFailure ran. Error is :', error)
-} */
-
 const onDeleteSuccess = function () {
   $('#success-display').text('Story successfully deleted')
   $('#success-display').removeClass()
   $('#success-display').addClass('text-success')
   $('form').trigger('reset')
-  console.log('Story successfully deleted')
 }
 
 const onDeleteFailure = function (error) {
@@ -159,7 +165,6 @@ const onUpdateSuccess = function () {
   $('#success-display').removeClass()
   $('#success-display').addClass('text-success')
   $('form').trigger('reset')
-  console.log('Story successfully updated')
 }
 
 const onUpdateFailure = function (error) {
@@ -174,8 +179,6 @@ module.exports = {
   onCreateStorySuccess,
   onIndexSuccess,
   onIndexFailure,
-  // onShowSuccess,
-  // onShowFailure,
   onDeleteSuccess,
   onDeleteFailure,
   onUpdateSuccess,

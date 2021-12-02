@@ -25,16 +25,6 @@ const indexStory = function () {
   })
 }
 
-/* const showStory = function (id) {
-  return $.ajax({
-    url: config.apiUrl + '/stories/' + id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
-  })
-} */
-
 const destroyStory = function (id) {
   return $.ajax({
     url: config.apiUrl + '/stories/' + id,
@@ -59,7 +49,6 @@ const updateStory = function (id, formData) {
 module.exports = {
   createStory,
   indexStory,
-  // showStory,
   destroyStory,
   updateStory
 }

@@ -22,7 +22,6 @@ const signIn = function (formData) {
 }
 // sign out
 const signOut = function () {
-  console.log(store.user)
   return $.ajax({
     url: `${config.apiUrl}/sign-out`,
     method: 'DELETE',

@@ -1,24 +1,23 @@
 'use strict'
 // TODO: make button appear and work...
 
-const onCreateCommentSuccess = function (responseData) {
+const onCreateCommentSuccess = function (formData) {
   // extract the comment object from our response's data
-  const comment = responseData.comment
-  console.log(responseData)
+  const story = formData.story
 
   // create the html to display a single comment
   const commentHtml = `
-    <div class= 'single-comment'data-id=${comment._id} style="display: none">
-      <p>Author: ${comment.owner}</p>
-      <p>Encounter: ${comment.message}</p>
-       <button class='comment-destroy-dynamic' data-id=${comment._id}>Delete Comment</button>
+    <div class= 'single-comment'data-id=${story._id} style="display: none">
+      <p> ${story.comment}</p>
+      
+       <button class='comment-destroy-dynamic' data-id=${story._id}>Delete Comment</button>
       <br>
     </div>
   `
 
   // for the div with the id comment-display,
   // set its html to be our comment's html
-  $('.comment-display').html(commentHtml)
+  $(`#comment-display${story._id}`).html(commentHtml)
 
   $('form').trigger('reset')
 }
@@ -46,27 +45,28 @@ const onError = function (err) {
 const onIndexSuccess = function (responseData) {
   $('#success-display').text('All Comments successfully received')
   $('#success-display').removeClass()
-  console.log('onIndexSuccess ran. responseData is :', responseData.comments)
 
   let commentsHtml = ''
-  const comments = responseData.comments
-  comments.forEach((comment) => {
+  const story = responseData.story
+  story.forEach((comment) => {
+    const story = responseData.story
     commentsHtml += `
     <div>
-      <h4>Title: ${comment.title}</h4>
-      <p>Author: ${comment.owner}</p>
-      <p>Encounter: ${comment.message}</p>
-      <button class='comment-destroy-dynamic' data-id=${comment._id}>Delete Post</button>
+     <div class= 'single-comment'data-id=${story._id} style="display: none">
+      <p> ${story.comment}</p>
+      
+       <button class='comment-destroy-dynamic' data-id=${story._id}>Delete Comment</button>
+      <br>
     </div>
   `
 
     // for the div with the id comment-display,
     // set its html to be our comment's html
-    $('.comments-display').html(commentsHtml)
+    $(`#comment-display${story._id}`).html(commentsHtml)
 
     $('form').trigger('reset')
   })
-  $('.comment-display').html(commentsHtml)
+  // $(`comment-display${story._id}`).html(commentsHtml)
 }
 
 const onIndexFailure = function (error) {
@@ -76,36 +76,11 @@ const onIndexFailure = function (error) {
   console.error('onIndexFailure ran. Error is :', error)
 }
 
-/* const onShowSuccess = function (responseData) {
-  $('#success-display').text('One Comment successfully received')
-  $('#success-display').removeClass()
-  $('#success-display').addClass('text-success')
-  console.log('onShowSuccess ran. responseData is :', responseData)
-  $('form').trigger('reset')
-
-  const comment = responseData.comment
-  $('#comments-display').html(`
-     <div>
-      <h4>Title: ${comment.title}</h4>
-      <p>Author: ${comment.owner}</p>
-      <p>Encounter: ${comment.message}</p>
-    </div>
-  `)
-}
-
-const onShowFailure = function (error) {
-  $('#error-message').text('Error on getting comment')
-  $('#error-message').removeClass()
-  $('#error-message').addClass('text-danger')
-  console.error('onShowFailure ran. Error is :', error)
-} */
-
 const onDeleteSuccess = function () {
   $('#success-display').text('Comment successfully deleted')
   $('#success-display').removeClass()
   $('#success-display').addClass('text-success')
   $('form').trigger('reset')
-  console.log('Comment successfully deleted')
 }
 
 const onDeleteFailure = function (error) {
@@ -120,7 +95,6 @@ const onUpdateSuccess = function () {
   $('#success-display').removeClass()
   $('#success-display').addClass('text-success')
   $('form').trigger('reset')
-  console.log('Comment successfully updated')
 }
 
 const onUpdateFailure = function (error) {
@@ -135,8 +109,6 @@ module.exports = {
   onCreateCommentSuccess,
   onIndexSuccess,
   onIndexFailure,
-  // onShowSuccess,
-  // onShowFailure,
   onDeleteSuccess,
   onDeleteFailure,
   onUpdateSuccess,

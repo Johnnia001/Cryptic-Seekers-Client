@@ -5,7 +5,7 @@
 // require('./example')
 const authEvents = require('./auth/event')
 const storyEvent = require('./Story/event')
-// const commentEvent = require('./comment/event')
+const commentEvent = require('./comment/event')
 $(() => {
   // AUTH
   // sign up
@@ -23,11 +23,13 @@ $(() => {
   $('#post-story').on('submit', storyEvent.onShowStory)
   $('#stories-delete').on('submit', storyEvent.onDeleteStory)
   $('#stories-update').on('submit', storyEvent.onUpdateStory)
+  // delete story
   $('#story-display').on(
     'click',
     '.story-destroy-dynamic',
     storyEvent.onDynamicDestroyStory
   )
+  // update story
   $('#story-display').on(
     'click',
     '.story-update-dynamic',
@@ -38,6 +40,15 @@ $(() => {
     '.update-single-story',
     storyEvent.onDynamicUpdateStoryPartTwo
   )
-  // COMMENT
-  // $('#comment-display').on('click', '.add-comment', commentEvent.onCreateComment)
+  // comment
+  $('#story-display').on(
+    'click',
+    '.story-comment-dynamic',
+    commentEvent.onDynamicCommentStory
+  )
+  $('.comment-form').on(
+    'submit',
+    '.comment-single-story',
+    commentEvent.onDynamicCommentStoryPartTwo
+  )
 })
