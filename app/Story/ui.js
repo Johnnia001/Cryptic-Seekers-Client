@@ -85,6 +85,15 @@ const onIndexSuccess = function (responseData) {
   let storiesHtml = ''
   const stories = responseData.stories
   stories.forEach((story) => {
+    let commentHtml = ''
+    story.comment.forEach((comment) => {
+      commentHtml += `
+      <div>
+      <p>${comment.content}</p>
+      </div>
+      `
+    }) 
+    console.log(story)
     storiesHtml += `
     <div>
       <h4>Title: ${story.title}</h4>
@@ -113,8 +122,8 @@ const onIndexSuccess = function (responseData) {
       <!--comment button-->
       <button class='story-comment-dynamic'>comment</button>
       <!--comment form -->
-       <form class="comment-form">
-        <fieldset class='comment-single-story' data-id=${story._id} style= "display: none">
+       <form class="comment-form" data-id=${story._id}>
+        <fieldset class='comment-single-story'  style= "display: none">
 					
 					<input
 						type="text"
@@ -125,9 +134,9 @@ const onIndexSuccess = function (responseData) {
 					<button class="btn btn-primary">Reply</button>
 				</fieldset>
 			</form>
+      ${commentHtml}
     </div>
-
-    </div>
+    
   `
 
     // for the div with the id story-display,

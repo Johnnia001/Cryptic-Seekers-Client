@@ -6,6 +6,7 @@ const config = require('../config')
 const store = require('../store')
 
 const createComment = function (formData) {
+  console.log(formData)
   return $.ajax({
     method: 'POST',
     url: `${config.apiUrl}/comments`,

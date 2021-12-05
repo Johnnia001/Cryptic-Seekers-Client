@@ -5,7 +5,7 @@ const ui = require('./ui')
 // import the getFormFields function, to get data out of our form
 const getFormFields = require('../../lib/get-form-fields')
 
- const onCreateComment = (event) => {
+/* const onCreateComment = (event) => {
   // prevent the default action of the form refreshing the page
   // when it is submitted.
   event.preventDefault()
@@ -21,8 +21,7 @@ const getFormFields = require('../../lib/get-form-fields')
     .then(ui.onCreateCommentSuccess)
 
     .catch(ui.onError)
-}
-
+} */
 
 const onIndexComment = function (event) {
   event.preventDefault()
@@ -76,11 +75,16 @@ const onDynamicCommentStory = function (event) {
 const onDynamicCommentStoryPartTwo = function (event) {
   event.preventDefault()
   const form = event.target
+  console.log(form)
   const formData = getFormFields(form)
+  console.log(formData.story, 'formData.story')
   const id = $(event.target).data('id')
-
+  const idData = {
+    commentData: formData.story.comment,
+    storyId: id
+  }
   api
-    .createComment(id, formData)
+    .createComment(idData)
 
     .then(ui.onCreateCommentSuccess)
     .catch(ui.onError)

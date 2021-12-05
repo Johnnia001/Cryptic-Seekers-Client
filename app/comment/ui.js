@@ -7,12 +7,14 @@ const onCreateCommentSuccess = function (formData) {
 
   // create the html to display a single comment
   const commentHtml = `
-    <div class= 'single-comment'data-id=${story._id} style="display: none">
+  <section class= >
+  <div class= 'single-comment'data-id=${story._id} style="display: none">
       <p> ${story.comment}</p>
       
        <button class='comment-destroy-dynamic' data-id=${story._id}>Delete Comment</button>
       <br>
     </div>
+    </section> 
   `
 
   // for the div with the id comment-display,
