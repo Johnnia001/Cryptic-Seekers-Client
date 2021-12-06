@@ -9,7 +9,7 @@ const store = require('../store')
 
 const signUpSuccess = function (responseData) {
   // tell the user it was successful
-  $('#success-display').text('Signed up successfully, High-Five!')
+  $('#success-display').text('Signed up successfully')
   $('#success-display').removeClass()
   $('#success-display').addClass('text-success')
   // reset all of the forms
@@ -19,10 +19,11 @@ const signUpSuccess = function (responseData) {
 
 const signUpFailure = function (error) {
   // tell the user it was failure
-  $('#error-message').text('Sign up failed, Bro... :(')
+  $('#error-message').text('Sign up failed, are you a robot?')
   // remove existing classes, then make it red with bootstrap
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
+  $('form').trigger('reset')
   // print the error
   console.error('error is', error)
 }
@@ -33,7 +34,7 @@ const signInSuccess = function (responseData) {
   // add the user from response data in store for their token we can get in api
   store.user = responseData.user
 
-  $('#success-display').text('Signed in successfully Bro!')
+  $('#success-display').text('Signed in successfully! Don\'t wonder too far')
 
   $('#success-display').removeClass()
   $('#success-display').addClass('text-info')
@@ -50,10 +51,11 @@ const signInSuccess = function (responseData) {
 
 const signInFailure = function (error) {
   // tell the user it was failure
-  $('#error-message').text('Sign in failed :( sowwy Bro')
+  $('#error-message').text('Sign in failed... did the chupacabra eat your password?')
   // make red
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
+  $('form').trigger('reset')
   // print error
   console.error('error is', error)
 }
@@ -62,7 +64,7 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function (responseData) {
   // tell user
-  $('#success-display').text("Signed Out successfully... I'll miss you...")
+  $('#success-display').text('Signed Out successfully... TRUST NO ONE.')
   // make text green
   $('#success-display').removeClass()
   $('#success-display').addClass('text-info')
@@ -74,16 +76,17 @@ const signOutSuccess = function (responseData) {
 // sign out failure
 
 const signOutFailure = function (error) {
-  $('#error-message').text('Signing out failed! >:( ')
+  $('#error-message').text('Signing out failed... suspicious. ')
   // make text red
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
+  $('form').trigger('reset')
   console.error('error is', error)
 }
 
 const changePasswordSuccess = function (responseData) {
   // tell the user it was successful
-  $('#movies-display').text('Changed password successfully!')
+  $('#movies-display').text('Changed password successfully. who are you running from?')
 
   // remove existing classes, then add a green text-success class from bootstrap
   $('#movies-display').removeClass()
@@ -95,12 +98,12 @@ const changePasswordSuccess = function (responseData) {
 
 const changePasswordFailure = function (error) {
   // tell the user it was failure
-  $('#error-message').text('Changing passwords failed! >:( ')
+  $('#error-message').text('Changing passwords failed. ')
 
   // remove existing classes, then add a red text-danger class from bootstrap
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
-
+  $('form').trigger('reset')
   // print the error
   console.error('error is', error)
 }

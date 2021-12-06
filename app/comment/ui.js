@@ -10,8 +10,6 @@ const onCreateCommentSuccess = function (formData) {
   <section class= >
   <div class= 'single-comment'data-id=${story._id} style="display: none">
       <p> ${story.comment}</p>
-      
-       <button class='comment-destroy-dynamic' data-id=${story._id}>Delete Comment</button>
       <br>
     </div>
     </section> 

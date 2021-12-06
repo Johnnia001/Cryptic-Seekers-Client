@@ -4,6 +4,9 @@
 		<title>Cryptic Seekers</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 		<!-- Do not add `link` tags-->
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
@@ -23,6 +26,8 @@
 	</head>
 	<body>
 		<h1>Cryptic Seekers</h1>
+		<h2>A forum for posting all cryptid sightings</h2>
+		
 		<section id="before-sign-in">
 			<!-- sign up form-->
 			<form class="border" id="sign-up">
@@ -66,7 +71,7 @@
 						placeholder="Password"
 						required
 					/>
-					<button class="btn btn-info">Sign In</button>
+					<button>Sign In</button>
 				</fieldset>
 			</form>
 		</section>
@@ -79,8 +84,8 @@
 		<!--sign out form-->
 		<section id="after-sign-in" style="display: none">
 			<fieldset>
-				<legend>Sign Out</legend>
-				<button class="btn btn-danger" id="sign-out">Sign Out</button>
+				<legend id= "sign-out-legend">Sign Out</legend>
+				<button  id="sign-out">Sign Out</button>
 			</fieldset>
 			<!-- change password and sign out forms -->
 			<form class="border" id="change-password">
@@ -98,14 +103,14 @@
 						placeholder="New Password"
 						required
 					/>
-					<button class="btn btn-success">Change Password</button>
+					<button >Change Password</button>
 				</fieldset>
 			</form>
 			<!-- see all stories-->
 				<form id="story-index" class="border">
 				<fieldset>
-					<legend>Get All stories</legend>
-					<button class="btn btn-primary">Get All Stories</button>
+					<legend id= "get-all">Get All stories</legend>
+					<button id= "get-all-bttn">Get All Stories</button>
 				</fieldset>
 			</form>
 			<!--create forum-->
@@ -113,6 +118,7 @@
 				<div>
 					<tr>
 						<td>
+							<p id="post-legend"> Post Your Experience</p>
 							<input
 								class="post-story"
 								type="text"
@@ -120,10 +126,13 @@
 								size="30"
 								maxlength="80"
 								value=""
+								placeholder="Title"
 							/>
 						</td>
+					<br>
 						<td class="important">required</td>
 					</tr>
+					<br>
 					<textarea
 						rows="7"
 						name="message"

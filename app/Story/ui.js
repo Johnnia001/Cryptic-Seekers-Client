@@ -10,45 +10,7 @@ const onCreateStorySuccess = function (responseData) {
       <h4>Title: ${story.title}</h4>
       <p>Author: ${story.owner}</p>
       <p>Encounter: ${story.message}</p>
-      <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
-        <button class='story-update-dynamic'>Edit Post</button>
-        <form>
-        <fieldset class='update-single-story' data-id=${story._id} style= "display: none">
-					<legend>edit</legend>
-					<input
-						type="text"
-						name="story[title]"
-						placeholder="Enter Story Text"
-						required
-					/>
-					<input
-						type="text"
-						name="story[message]"
-						placeholder="Enter Edited Story"
-						required
-					/>
-					<button class="btn btn-primary">Update Story</button>
-				</fieldset>
-			</form>
-      <!--see comments button-->
-      <button class='see-comment-dynamic'>See Comments</button>
-      <!--comment button-->
-      <button class='story-comment-dynamic'>Reply</button>
-      <!--comment form -->
-       <form>
-        <fieldset class='comment-single-story' data-id=${story._id} style= "display: none">
-					<input
-						type="text"
-						name="story[comment]"
-						placeholder="Reply"
-						required
-					/>
-					<button class="btn btn-primary">Reply</button>
-				</fieldset>
-			</form>
-
-      <section id= "comment-display${story._id}"></section>
-    </div>
+      
   `
 
   // for the div with the id story-display,
@@ -89,15 +51,15 @@ const onIndexSuccess = function (responseData) {
     story.comment.forEach((comment) => {
       commentHtml += `
       <div>
-      <p>${comment.content}</p>
+      <p>Comment: ${comment.content}</p>
       </div>
       `
-    }) 
+    })
     console.log(story)
     storiesHtml += `
     <div>
-      <h4>Title: ${story.title}</h4>
-      <p>Author: ${story.owner}</p>
+      <h4> ${story.title}</h4>
+      <p>User: ${story.owner}</p>
       <p>Encounter: ${story.message}</p>
       <button class='story-destroy-dynamic' data-id=${story._id}>Delete Post</button>
         <button class='story-update-dynamic'>Edit Post</button>
@@ -134,7 +96,9 @@ const onIndexSuccess = function (responseData) {
 					<button class="btn btn-primary">Reply</button>
 				</fieldset>
 			</form>
+      <section id= "comment-area">
       ${commentHtml}
+      </section>
     </div>
     
   `
