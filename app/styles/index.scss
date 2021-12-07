@@ -81,3 +81,32 @@ body{
   height: 10vh;
   overflow: scroll;
 }
+.story-destroy-dynamic{
+  font-family: 'Creepster', cursive;
+  color:black;
+  &:hover{
+  background-color: rgb(92, 213, 92)
+  
+}
+}
+.story-update-dynamic{
+  font-family: 'Creepster', cursive;
+  color:black;
+  &:hover{
+  background-color: rgb(92, 213, 92)
+  
+}
+}
+.story-comment-dynamic{
+   font-family: 'Creepster', cursive;
+  color:black;
+  &:hover{
+  background-color: rgb(92, 213, 92)
+ 
+}
+}
+
+#post-button{
+  font-family: 'Creepster', cursive;
+  color:black;
+}

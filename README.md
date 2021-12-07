@@ -19,5 +19,5 @@ Javascript, node, mongoose, html, css, bootstrap, flex-box, express, cors, mongo
 
 ## Links ##
 [Other Repo](https://github.com/Johnnia001/Cryptic-Seekers)
-[Deployed Api] (<insert link>)
-[Deployed Client] (<insert link>)
+[Deployed Api](https://pacific-mountain-17111.herokuapp.com)
+[Deployed Client](https://johnnia001.github.io/Cryptic-Seekers-Client/)

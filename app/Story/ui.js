@@ -55,7 +55,7 @@ const onIndexSuccess = function (responseData) {
       </div>
       `
     })
-    console.log(story)
+
     storiesHtml += `
     <div>
       <h4> ${story.title}</h4>
@@ -116,6 +116,9 @@ const onIndexFailure = function (error) {
   $('#error-message').text('Error on getting stories')
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
+  setTimeout(function () {
+    $('#error-message').removeClass()
+  }, 5000)
   console.error('onIndexFailure ran. Error is :', error)
 }
 
@@ -130,6 +133,9 @@ const onDeleteFailure = function (error) {
   $('#error-message').text('Error on deleting story')
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
+  setTimeout(function () {
+    $('#error-message').removeClass()
+  }, 5000)
   console.error('onDestroyFailure ran. Error is :', error)
 }
 
@@ -144,6 +150,9 @@ const onUpdateFailure = function (error) {
   $('#error-message').text('Error on updating story')
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
+  setTimeout(function () {
+    $('#error-message').removeClass()
+  }, 5000)
   console.error('onUpdateFailure ran. Error is :', error)
 }
 

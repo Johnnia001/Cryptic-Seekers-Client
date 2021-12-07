@@ -24,6 +24,9 @@ const signUpFailure = function (error) {
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   $('form').trigger('reset')
+  setTimeout(function () {
+    $('#error-message').removeClass()
+  }, 5000)
   // print the error
   console.error('error is', error)
 }
@@ -56,6 +59,9 @@ const signInFailure = function (error) {
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   $('form').trigger('reset')
+  setTimeout(function () {
+    $('#error-message').removeClass()
+  }, 5000)
   // print error
   console.error('error is', error)
 }
@@ -81,6 +87,9 @@ const signOutFailure = function (error) {
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   $('form').trigger('reset')
+  setTimeout(function () {
+    $('#error-message').removeClass()
+  }, 5000)
   console.error('error is', error)
 }
 
@@ -104,6 +113,9 @@ const changePasswordFailure = function (error) {
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
   $('form').trigger('reset')
+  setTimeout(function () {
+    $('#error-message').removeClass()
+  }, 5000)
   // print the error
   console.error('error is', error)
 }

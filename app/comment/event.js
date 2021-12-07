@@ -75,9 +75,8 @@ const onDynamicCommentStory = function (event) {
 const onDynamicCommentStoryPartTwo = function (event) {
   event.preventDefault()
   const form = event.target
-  console.log(form)
+
   const formData = getFormFields(form)
-  console.log(formData.story, 'formData.story')
   const id = $(event.target).data('id')
   const idData = {
     commentData: formData.story.comment,
