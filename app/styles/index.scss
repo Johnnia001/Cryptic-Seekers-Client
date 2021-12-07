@@ -1,0 +1,112 @@
+@import '~bootstrap/scss/bootstrap';
+.container{
+ height: 70vh;
+
+}
+
+h1{
+  display: flex;
+  color: white;
+  font-size: 400%;
+  font-family: 'Creepster', cursive;
+  justify-content: center;
+}
+h2{
+  display: flex;
+  color: white;
+  font-size: 200%;
+  font-family: 'Creepster', cursive;
+  justify-content: center;
+}
+body{
+   display:flex;
+   flex-direction: column;
+  background-color: black;
+  
+  max-width: 100%;
+  max-height:90%;
+  min-height: 400px;
+  background-image: url(https://i.imgur.com/ZfA4DUG.gif);
+  background-size:100%;
+  background-repeat: no-repeat;
+}
+#sign-up{
+  font-family: 'Creepster', cursive;
+  color:white;
+}
+#sign-in{
+  font-family: 'Creepster', cursive;
+  color:white;
+}
+#sign-out{
+  font-family: 'Creepster', cursive;
+  color:black;
+}
+#sign-out-legend{
+  font-family: 'Creepster', cursive;
+  color:white;
+}
+#change-password{
+  font-family: 'Creepster', cursive;
+  color:white;
+}
+#get-all{
+  font-family: 'Creepster', cursive;
+  color:white;
+}
+#get-all-bttn{
+  font-family: 'Creepster', cursive;
+  color:black;
+}
+.stories {
+  height:80vh;
+  overflow-y: scroll;
+  color: yellow;
+}
+#story-display{
+  color: yellow;
+}
+#success-display{
+  color: white;
+}
+#error-display{
+  color:white;
+}
+#post-legend{
+  font-family: 'Creepster', cursive;
+  color:white;
+  font-size: xx-large;
+}
+#comment-area{
+  height: 10vh;
+  overflow: scroll;
+}
+.story-destroy-dynamic{
+  font-family: 'Creepster', cursive;
+  color:black;
+  &:hover{
+  background-color: rgb(92, 213, 92)
+  
+}
+}
+.story-update-dynamic{
+  font-family: 'Creepster', cursive;
+  color:black;
+  &:hover{
+  background-color: rgb(92, 213, 92)
+  
+}
+}
+.story-comment-dynamic{
+   font-family: 'Creepster', cursive;
+  color:black;
+  &:hover{
+  background-color: rgb(92, 213, 92)
+ 
+}
+}
+
+#post-button{
+  font-family: 'Creepster', cursive;
+  color:black;
+}
